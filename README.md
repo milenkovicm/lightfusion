@@ -5,6 +5,11 @@ LightFusion is an very opinionated [LightGBM](https://lightgbm.readthedocs.io/en
 > [!NOTE]
 > It has not been envisaged as a actively maintained library.
 
+Other project utilizing `FunctionFactory`:
+
+- [Torchfusion, Opinionated Torch Inference on DataFusion](https://github.com/milenkovicm/torchfusion)
+- [DataFusion JVM User Defined Functions (UDF)](https://github.com/milenkovicm/adhesive)
+
 ## How to use
 
 A LightGBM model can be defined as and SQL UDF definition:
