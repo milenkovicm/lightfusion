@@ -25,7 +25,7 @@ pub struct LightfusionFunctionFactory {}
 impl FunctionFactory for LightfusionFunctionFactory {
     async fn create(
         &self,
-        state: &SessionConfig,
+        state: &SessionState,
         statement: CreateFunction,
     ) -> datafusion::error::Result<RegisterFunction> {
         let model_name = statement.name;
@@ -52,6 +52,7 @@ impl FunctionFactory for LightfusionFunctionFactory {
             _ => format!("model/{}.lgbm", model_name),
         };
         let config = state
+            .config()
             .options()
             .extensions
             .get::<LightfusionConfig>()
@@ -93,12 +94,9 @@ fn find_item_type(dtype: &DataType) -> DataType {
 pub fn configure_context() -> SessionContext {
     let runtime_environment = RuntimeEnv::new(RuntimeConfig::new()).unwrap();
 
-    let mut session_config = SessionConfig::new().with_information_schema(true);
-
-    session_config
-        .options_mut()
-        .extensions
-        .insert(LightfusionConfig::default());
+    let session_config = SessionConfig::new()
+        .with_information_schema(true)
+        .with_option_extension(LightfusionConfig::default());
 
     let state = SessionState::new_with_config_rt(session_config, Arc::new(runtime_environment))
         .with_function_factory(Arc::new(LightfusionFunctionFactory::default()));
