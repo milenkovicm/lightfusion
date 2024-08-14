@@ -5,10 +5,9 @@ edition = "2021"
 license = "MIT"
 
 [dependencies]
-lightgbm3 = { git = "https://github.com/milenkovicm/lightgbm3-rs.git", rev = "072af40c4d59e9675b09f127a1bc4c7f09753fbe" }
+lightgbm3 = { git = "https://github.com/milenkovicm/lightgbm3-rs.git", rev = "99cc5eb" }
 tokio = { version = "^1.36", features = ["rt-multi-thread"]}
 datafusion = { version = "41.0" }
-# datafusion = { git = "https://github.com/apache/arrow-datafusion.git", rev="799be5e76bd631608b2357dbbe600afc2cebc359" }
 
 thiserror = { version = "1.0"}
 log = { version = "0.4" }
@@ -16,9 +15,8 @@ log = { version = "0.4" }
 async-trait = { version = "0.1" }
 parking_lot = { version = "0.12" }
 
-#derivative = { version = "2.2" }
-debug-ignore = {version = "1.0"}
-argminmax = { version = "0.6", default-features = false, features = ["arrow", "float", "half"]}
+debug-ignore = { version = "1.0" }
+argminmax = { version = "0.6", default-features = false, features = ["arrow", "float", "half"] }
 
 [dev-dependencies]
 ctor = { version = "0.2"}

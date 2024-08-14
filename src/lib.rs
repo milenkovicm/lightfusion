@@ -100,9 +100,12 @@ pub fn configure_context() -> SessionContext {
     let session_config = SessionConfig::new()
         .with_information_schema(true)
         .with_option_extension(LightfusionConfig::default());
-
-    let state = SessionState::new_with_config_rt(session_config, Arc::new(runtime_environment))
-        .with_function_factory(Arc::new(LightfusionFunctionFactory::default()));
+    let state = datafusion::execution::session_state::SessionStateBuilder::new()
+        .with_config(session_config)
+        .with_runtime_env(runtime_environment.into())
+        .with_default_features()
+        .with_function_factory(Some(Arc::new(LightfusionFunctionFactory::default())))
+        .build();
 
     let ctx = SessionContext::new_with_state(state);
 
