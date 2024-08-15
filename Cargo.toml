@@ -5,7 +5,8 @@ edition = "2021"
 license = "MIT"
 
 [dependencies]
-lightgbm3 = { git = "https://github.com/milenkovicm/lightgbm3-rs.git", rev = "99cc5eb" }
+#lightgbm3 = { git = "https://github.com/milenkovicm/lightgbm3-rs.git", rev = "99cc5eb" }
+lightgbm3 = { version = "1.0.4" }
 tokio = { version = "^1.36", features = ["rt-multi-thread"]}
 datafusion = { version = "41.0" }
 
