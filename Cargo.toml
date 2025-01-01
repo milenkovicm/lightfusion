@@ -8,7 +8,7 @@ license = "MIT"
 #lightgbm3 = { git = "https://github.com/milenkovicm/lightgbm3-rs.git", rev = "99cc5eb" }
 lightgbm3 = { version = "1.0.4" }
 tokio = { version = "^1.36", features = ["rt-multi-thread"]}
-datafusion = { version = "43.0" }
+datafusion = { version = "44.0" }
 
 thiserror = { version = "2.0"}
 log = { version = "0.4" }
