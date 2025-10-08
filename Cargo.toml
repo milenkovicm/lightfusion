@@ -20,5 +20,5 @@ debug-ignore = { version = "1.0" }
 argminmax = { version = "0.6", default-features = false, features = ["arrow", "float", "half"] }
 
 [dev-dependencies]
-ctor = { version = "0.5"}
+ctor = { version = "0.6"}
 env_logger = { version = "0.11" }
